@@ -75,6 +75,25 @@ turtleOne.showturtle()
 # para que aparescan el juador dos
 turtleTwo.showturtle()
 
+# crear el dado
+dado = [1,2,3,4,5,6]
+
+#Automatizar los procesos de movilizar los jugadores 
+
+#un for con un rango de los pasos posiblemente necesarios para llegar a la meta
+for i in range(20):
+    if turtleOne.pos() >= (200,200):
+        print("tortuga verde es la ganadora")
+        #para que se salga del bucle o termine el juego
+        break
+    elif turtleTwo.pos() >= (200, -200):
+        print("la tortuga azul es la ganadora")
+        break
+  
+
+
+
+
 
 
 turtle.done()
