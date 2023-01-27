@@ -1,15 +1,49 @@
 import turtle
 
+# Pantalla
+
 s = turtle.Screen()
-s.title("carrera de tortuga")
+# titulo de pantalla "carrera de tortugas"
+s.title("turtle race") 
+#Cambiar color de pantalla
+s.bgcolor("grey")
+
+
+#crear Jugadores
+
 turtleOne = turtle.Turtle()
 turtleTwo = turtle.Turtle()
-# darle forma de tortuga y color a la pluma al jugador 1
+
+#Jugador Uno
+
+#para que al crear la casa no se vea la tortuga o el jugador
+turtleOne.hideturtle()
+# darle forma de tortuga 
 turtleOne.shape("turtle")
+#cambiar el color
 turtleOne.color("green","green")
-# darle forma de tortuga y color a la pluma al jugador 2
+#cambiar el tamaño
+turtleOne.shapesize(2,2,2)
+# dar grosor a la tinta o la pluma
+turtleOne.pensize(4)
+
+
+# Crear jugador dos
+
+#para que al crear la casa no se vea la tortuga o el jugador
+turtleTwo.hideturtle()
+# darle forma de tortuga
 turtleTwo.shape("turtle")
+#cambiar el color
 turtleTwo.color("blue", "blue")
+#cambiar el tamaño
+turtleTwo.shapesize(2,2,2)
+# dar grosor a la tinta o la pluma
+turtleTwo.pensize(4)
+
+
+
+
 # dejar de dibujar
 turtleOne.penup()
 # desplazar jugador uno a un lugar especifico
@@ -24,6 +58,7 @@ turtleOne.penup()
 turtleOne.goto(-250,225)
 
 
+
 turtleTwo.penup()
 # desplazar jugador uno a un lugar especifico
 turtleTwo.goto(200,-200)
@@ -35,6 +70,10 @@ turtleTwo.circle(40)
 turtleTwo.penup()
 # le damos las coordenadas donde se ubicará la tortuga
 turtleTwo.goto(-250,-170)
+# para que aparescan el juador uno
+turtleOne.showturtle()
+# para que aparescan el juador dos
+turtleTwo.showturtle()
 
 
 
