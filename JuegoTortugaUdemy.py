@@ -1,4 +1,5 @@
 import turtle
+import random
 
 # Pantalla
 
@@ -89,7 +90,28 @@ for i in range(20):
     elif turtleTwo.pos() >= (200, -200):
         print("la tortuga azul es la ganadora")
         break
-  
+    else:
+        oneTurn = input("Presione la tecla enter para avanzar la tortuga verde.")
+        # dar un número aleatorio para que avance
+        oneTurn= random.choice(dado)
+        # mandar a imprimir el numero que salio en el dado y lo que va a avanzar el jugador
+        print(" tu numero es: ", oneTurn,"/nAvanzas: ", oneTurn*20)
+        #empezar a pintar
+        turtleOne.pendown()
+        turtleOne.forward(20*oneTurn)
+
+
+
+        twoTurn = input("Presione la tecla enter para avanzar la tortuga azul.")
+        # dar un número aleatorio para que avance
+        twoTurn= random.choice(dado)
+        # mandar a imprimir el numero que salio en el dado y lo que va a avanzar el jugador
+        print(" tu numero es: ", twoTurn,"/nAvanzas: ", twoTurn*20)
+        #empezar a pintar
+        turtleTwo.pendown()
+        turtleTwo.forward(20*twoTurn)
+    
+
 
 
 
