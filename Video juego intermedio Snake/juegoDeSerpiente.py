@@ -41,6 +41,9 @@ meal.goto(0,100)
 #rapidez
 meal.speed(0)
 
+# creamos una lista vacia para alargar el cuerpo de la serpiente con varios segmentos
+bodySerpirte = []
+
 
 
 #darle movimiento a la serpiente
@@ -129,6 +132,30 @@ while True:
 
         meal.goto(motionX,motionY)
 
+        # creamos los nuevos segmentos que alargaran el cuerpo de la serpiente
+        newBodySerpirte = turtle.Turtle()
+        newBodySerpirte.shape("square")
+        newBodySerpirte.color("blue")
+        newBodySerpirte.penup()
+        newBodySerpirte.goto(0,100)
+        newBodySerpirte.speed(0)
+        #agregar el nuevo cuerpo a la lista bodySerpirte
+        bodySerpirte.append(newBodySerpirte)
+        #creamos la variable total  que va ser igual al tamaño del cuerpo
+    total =  len(bodySerpirte)
+        #recorremos la lista con un for que inicie con -1 para recorer la lista a la inversa, el 0 para que no lo cuente, -1 para que la cuenta vaya de 1 en 1
+    for i in range(total -1,0,-1):
+         #para iniciar las coordenadas x y desde cero
+        x = bodySerpirte[i-1].xcor()
+        y = bodySerpirte[i-1].ycor()
+         # enviar el cuerpo a la cabeza de la serpiente
+        bodySerpirte[i].goto(x,y)
+        #si en la lista no está vacia
+    if total > 0:
+        x = serpirte.xcor()
+        y = serpirte.ycor()
+        bodySerpirte[0].goto(x,y)
+  
     # llamamos la función movimiento
     motion()
     #para que la serpiente atrace el recorrido ya
