@@ -25,13 +25,34 @@ serpirte.penup()
 serpirte.goto(0,0)
 
 # hacer que al reiniciar eljuego la serpiente se quede en el punto de inicio
-serpirte.direction = "left"
+
+serpirte.direction = "stop"
 #darle color
 serpirte.color("blue")
 
 
 
 #darle movimiento a la serpiente
+
+# dar movimiento a la serpiente con el teclado cambiando el valor de serpiente.direction
+
+#hacia arriba
+def upwards():
+   serpirte.direction = "up" 
+
+   #hacia abajo
+def below():
+   serpirte.direction = "down" 
+
+   #hacia la derecha
+def onTheRight():
+   serpirte.direction = "right" 
+
+   #hacia izquierda
+def onTheLeft():
+   serpirte.direction = "left" 
+
+
 # crear la función del movimiento
 def motion():
     #creamos la condicional si la serpiente 
@@ -66,7 +87,16 @@ def motion():
         #aplicamos la función sety para mover le serpiente en el eje de las y + 20 pixeles
         serpirte.setx(x - 20)
 
- 
+ #llamar alas teclas
+
+ #poner en escucha los eventos del teclado
+s.listen()
+#evento escuche  tecla presionada arriba del teclado s.keypress(nombre dela funcion, evento del teclado "Up")
+s.onkeypress(upwards, "Up")
+s.onkeypress(below, "Down")
+s.onkeypress(onTheRight, "Right")
+s.onkeypress(onTheLeft, "Left")
+
 
 
 #aplicamos un while True para asegurase de que siempre se repita ya que normalmente los juegos tienen un bucle llamado loop que se repite constantemente ya que cada vez que un jugador se mueve debe actualizarse lo que se muestra en pantalla
