@@ -1,5 +1,6 @@
 import turtle
 import time
+import random
 
 #la serpiente debe moverse cada cierto retrazo(delay) en este caso 1 segun do
 delayTime = 0.1
@@ -29,6 +30,16 @@ serpirte.goto(0,0)
 serpirte.direction = "stop"
 #darle color
 serpirte.color("blue")
+
+#crear la comida
+
+meal = turtle.Turtle()
+meal.shape("circle")
+meal.color("red")
+meal.penup()
+meal.goto(0,100)
+#rapidez
+meal.speed(0)
 
 
 
@@ -104,6 +115,20 @@ s.onkeypress(onTheLeft, "Left")
 while True:
     #actualizar pantalla
     s.update()
+
+#para que la comida se movilice a un lugar rando
+#cuando la distacia sea menor a 20 que es la distacia que de movera la serpiente
+
+    if serpirte.distance(meal) < 20:
+
+        #escoger dirección aleatoria en el eje de las x
+        motionX = random.randint(-250,250)
+
+           #escoger dirección aleatoria en el eje de las x
+        motionY = random.randint(-250,250)
+
+        meal.goto(motionX,motionY)
+
     # llamamos la función movimiento
     motion()
     #para que la serpiente atrace el recorrido ya
