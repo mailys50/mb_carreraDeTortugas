@@ -118,6 +118,24 @@ s.onkeypress(onTheLeft, "Left")
 while True:
     #actualizar pantalla
     s.update()
+    #función para parar cuando la serpiente toque los bordes
+    if serpirte.xcor() > 300 or serpirte.xcor() < -300 or serpirte.ycor() > 300 or serpirte.ycor() < -300:
+        #para que se detenga o haga una pequeña pausa y reinicie el juego
+        time.sleep(2)
+        # recorrer los elementos de la lista bodyserpirte
+        for i in bodySerpirte:
+            #eliminar cada uno de los elementos de la lista
+            i.clear()
+
+            i.hideturtle()
+         #enviar serpiente al punto de inicio
+        serpirte.home()
+        #mantenert la serpuiente en stop hasta que presione una tecla
+        serpirte.direction = "stop"
+
+        bodySerpirte.clear()
+
+
 
 #para que la comida se movilice a un lugar rando
 #cuando la distacia sea menor a 20 que es la distacia que de movera la serpiente
@@ -159,6 +177,19 @@ while True:
     # llamamos la función movimiento
     motion()
     #para que la serpiente atrace el recorrido ya
+    for i in bodySerpirte:
+        if i.distance(serpirte) < 20:
+            for i in bodySerpirte:
+                i.clear()
+
+                i.hideturtle()
+             #enviar serpiente al punto de inicio
+            serpirte.home()
+            bodySerpirte.clear()   
+            #mantenert la serpuiente en stop hasta que presione una tecla
+            serpirte.direction = "stop"
+
+            
     time.sleep(delayTime)
 
 
