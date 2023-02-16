@@ -5,6 +5,11 @@ import random
 #la serpiente debe moverse cada cierto retrazo(delay) en este caso 1 segun do
 delayTime = 0.1
 
+#marcador de puntos
+
+marker = 0
+#marcador mas alto
+highMarker = 0
 
 #crear pantalla 
 s = turtle.Screen()
@@ -44,6 +49,14 @@ meal.speed(0)
 # creamos una lista vacia para alargar el cuerpo de la serpiente con varios segmentos
 bodySerpirte = []
 
+#para el marcador
+text = turtle.Turtle()
+text.speed(0)
+text.color("black")
+text.penup()
+text.hideturtle()
+text.goto(0,260)
+text.write("Marcador: 0\t Marcador alto: 0", align= "center", font= ("verdana", 24,"normal"))
 
 
 #darle movimiento a la serpiente
@@ -135,6 +148,12 @@ while True:
 
         bodySerpirte.clear()
 
+        # volver el marcador acero
+        marker = 0
+        text.clear()
+        text.write("Marcador:{}\t Marcador alto: {}".format(marker,highMarker), align= "center", font= ("verdana", 24,"normal"))
+
+
 
 
 #para que la comida se movilice a un lugar rando
@@ -159,6 +178,17 @@ while True:
         newBodySerpirte.speed(0)
         #agregar el nuevo cuerpo a la lista bodySerpirte
         bodySerpirte.append(newBodySerpirte)
+
+
+        #función del marcador
+        #marcador marcará 10 cuando la serpiente coma una porción
+        marker += 10
+        if marker > highMarker:
+            highMarker = marker
+            text.clear()
+            text.write("Marcador:{}\t Marcador alto: {}".format(marker,highMarker), align= "center", font= ("verdana", 24,"normal"))
+
+
         #creamos la variable total  que va ser igual al tamaño del cuerpo
     total =  len(bodySerpirte)
         #recorremos la lista con un for que inicie con -1 para recorer la lista a la inversa, el 0 para que no lo cuente, -1 para que la cuenta vaya de 1 en 1
