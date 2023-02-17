@@ -4,7 +4,7 @@ import random
 # Pantalla
 
 s = turtle.Screen()
-# titulo de pantalla "carrera de tortugas"
+# título de pantalla "carrera de tortugas"
 s.title("turtle race") 
 #Cambiar color de pantalla
 s.bgcolor("grey")
@@ -47,11 +47,11 @@ turtleTwo.pensize(4)
 
 # dejar de dibujar
 turtleOne.penup()
-# desplazar jugador uno a un lugar especifico
+# desplazar jugador uno a un lugar específico
 turtleOne.goto(200,200)
-#ordenar que empice a dibujar
+#ordenar que empiece a dibujar
 turtleOne.pendown()
-#ordenamos crear la casa con el circulo
+#ordenamos crear la casa con el círculo
 turtleOne.circle(40)
 # regrasar la totuga en el sitio de partida dejamos de dibujar
 turtleOne.penup()
@@ -61,19 +61,19 @@ turtleOne.goto(-250,225)
 
 
 turtleTwo.penup()
-# desplazar jugador uno a un lugar especifico
+# desplazar jugador uno a un lugar específico
 turtleTwo.goto(200,-200)
 #ordenar que empice a dibujar
 turtleTwo.pendown()
-#ordenamos crear la casa con el circulo
+#ordenamos crear la casa con el círculo
 turtleTwo.circle(40)
 # regrasar la totuga en el sitio de partida dejamos de dibujar
 turtleTwo.penup()
 # le damos las coordenadas donde se ubicará la tortuga
 turtleTwo.goto(-250,-170)
-# para que aparescan el juador uno
+# para que aparezca el jugador uno
 turtleOne.showturtle()
-# para que aparescan el juador dos
+# para que aparezca el jugador dos
 turtleTwo.showturtle()
 
 # crear el dado

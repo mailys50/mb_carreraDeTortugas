@@ -2,13 +2,13 @@ import turtle
 import time
 import random
 
-#la serpiente debe moverse cada cierto retrazo(delay) en este caso 1 segun do
+#la serpiente debe moverse cada cierto retraso(delay) en este caso 1 segundo
 delayTime = 0.1
 
 #marcador de puntos
 
 marker = 0
-#marcador mas alto
+#marcador más alto
 highMarker = 0
 
 #crear pantalla 
@@ -25,7 +25,7 @@ serpirte  = turtle.Turtle()
 serpirte.speed(1)
 #darle forma a la serpiente(cuadrado)
 serpirte.shape('square')
-#hacer que no se dibuje el reorrido de la serpiente
+#hacer que no se dibuje el recorrido de la serpiente
 serpirte.penup()
 #punto de inicio de la serpiente
 serpirte.goto(0,0)
@@ -46,7 +46,7 @@ meal.goto(0,100)
 #rapidez
 meal.speed(0)
 
-# creamos una lista vacia para alargar el cuerpo de la serpiente con varios segmentos
+# creamos una lista vacía para alargar el cuerpo de la serpiente con varios segmentos
 bodySerpirte = []
 
 #para el marcador
@@ -88,7 +88,7 @@ def motion():
     if serpirte.direction == "up":
         #creamos la variable y
         y = serpirte.ycor()
-        #aplicamos la función sety para mover le serpiente en el eje de las y + 20 pixeles
+        #aplicamos la función sety para mover la serpiente en el eje de las y + 20 pixeles
         serpirte.sety(y + 20)
  
 
@@ -96,7 +96,7 @@ def motion():
     if serpirte.direction == "down":
         #creamos la variable y
         y = serpirte.ycor()
-        #aplicamos la función sety para mover le serpiente en el eje de las y + 20 pixeles
+        #aplicamos la función sety para mover la serpiente en el eje de las y + 20 pixeles
         serpirte.sety(y -20)
 
  
@@ -104,17 +104,17 @@ def motion():
     if serpirte.direction == "right":
         #creamos la variable x
         x = serpirte.xcor()
-        #aplicamos la función sety para mover le serpiente en el eje de las y + 20 pixeles
+        #aplicamos la función sety para mover la serpiente en el eje de las y + 20 pixeles
         serpirte.setx(x + 20)
 
     # se mueve hacia izquierda
     if serpirte.direction == "left":
         #creamos la variable x
         x = serpirte.xcor()
-        #aplicamos la función sety para mover le serpiente en el eje de las y + 20 pixeles
+        #aplicamos la función sety para mover la serpiente en el eje de las y + 20 pixeles
         serpirte.setx(x - 20)
 
- #llamar alas teclas
+ #llamar las teclas
 
  #poner en escucha los eventos del teclado
 s.listen()
@@ -126,14 +126,14 @@ s.onkeypress(onTheLeft, "Left")
 
 
 
-#aplicamos un while True para asegurase de que siempre se repita ya que normalmente los juegos tienen un bucle llamado loop que se repite constantemente ya que cada vez que un jugador se mueve debe actualizarse lo que se muestra en pantalla
+#aplicamos un while True para asegurarse de que siempre se repita ya que normalmente los juegos tienen un bucle llamado loop que se repite constantemente ya que cada vez que un jugador se mueve debe actualizarse lo que se muestra en pantalla
 
 while True:
     #actualizar pantalla
     s.update()
     #función para parar cuando la serpiente toque los bordes
     if serpirte.xcor() > 300 or serpirte.xcor() < -300 or serpirte.ycor() > 300 or serpirte.ycor() < -300:
-        #para que se detenga o haga una pequeña pausa y reinicie el juego
+        #para que se detenga o haga una pequeña pausa y reinicia el juego
         time.sleep(2)
         # recorrer los elementos de la lista bodyserpirte
         for i in bodySerpirte:
@@ -143,7 +143,7 @@ while True:
             i.hideturtle()
          #enviar serpiente al punto de inicio
         serpirte.home()
-        #mantenert la serpuiente en stop hasta que presione una tecla
+        #mantener la serpiente en stop hasta que presione una tecla
         serpirte.direction = "stop"
 
         bodySerpirte.clear()
@@ -157,7 +157,7 @@ while True:
 
 
 #para que la comida se movilice a un lugar rando
-#cuando la distacia sea menor a 20 que es la distacia que de movera la serpiente
+#cuando la distancia sea menor a 20 que es la distancia que de movera la serpiente
 
     if serpirte.distance(meal) < 20:
 
@@ -169,7 +169,7 @@ while True:
 
         meal.goto(motionX,motionY)
 
-        # creamos los nuevos segmentos que alargaran el cuerpo de la serpiente
+        # creamos los nuevos segmentos que alargan el cuerpo de la serpiente
         newBodySerpirte = turtle.Turtle()
         newBodySerpirte.shape("square")
         newBodySerpirte.color("blue")
@@ -191,14 +191,14 @@ while True:
 
         #creamos la variable total  que va ser igual al tamaño del cuerpo
     total =  len(bodySerpirte)
-        #recorremos la lista con un for que inicie con -1 para recorer la lista a la inversa, el 0 para que no lo cuente, -1 para que la cuenta vaya de 1 en 1
+        #recorremos la lista con un for que inicie con -1 para recorrer la lista a la inversa, el 0 para que no lo cuente, -1 para que la cuenta vaya de 1 en 1
     for i in range(total -1,0,-1):
          #para iniciar las coordenadas x y desde cero
         x = bodySerpirte[i-1].xcor()
         y = bodySerpirte[i-1].ycor()
          # enviar el cuerpo a la cabeza de la serpiente
         bodySerpirte[i].goto(x,y)
-        #si en la lista no está vacia
+        #si en la lista no está vacía
     if total > 0:
         x = serpirte.xcor()
         y = serpirte.ycor()
@@ -206,7 +206,7 @@ while True:
   
     # llamamos la función movimiento
     motion()
-    #para que la serpiente atrace el recorrido ya
+    #para que la serpiente atrase el recorrido ya
     for i in bodySerpirte:
         if i.distance(serpirte) < 20:
             for i in bodySerpirte:
@@ -216,7 +216,7 @@ while True:
              #enviar serpiente al punto de inicio
             serpirte.home()
             bodySerpirte.clear()   
-            #mantenert la serpuiente en stop hasta que presione una tecla
+            #mantener la serpiente en stop hasta que presione una tecla
             serpirte.direction = "stop"
 
             
